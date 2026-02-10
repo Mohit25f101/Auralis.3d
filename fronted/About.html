@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Auralis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: #111; padding: 30px; border-radius: 12px; border: 1px solid #222; transition: 0.3s; }
+        .card:hover { border-color: #7f3cff; transform: translateY(-5px); }
+        .card i { font-size: 30px; color: #7f3cff; margin-bottom: 20px; }
+        .card h3 { margin-bottom: 10px; color: #fff; }
+        .card p { color: #aaa; line-height: 1.5; font-size: 14px; }
+        
+        /* New Styles for Tech Stack */
+        .roadmap-item { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 8px; }
+        .check-icon { color: #28a745; }
+        .wait-icon { color: #f39c12; }
+    </style>
+</head>
+<body>
+    
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-wave-square"></i> Auralis</div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="About.html" class="active">About</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+       <a href="login.html" class="signin btn-hover" style="text-decoration:none;">Sign In</a>
+    </header>
+
+    <section class="about-section">
+        <div style="text-align: center;">
+            <span class="badge">OUR MISSION</span>
+            <h1>Understanding the World<br><span>Through Sound</span></h1>
+            
+            <p style="color:#aaa; font-size: 18px; line-height: 1.6; margin-top: 20px;">
+                Auralis is an advanced Audio Language Model (ALM) designed to process, understand, and reason about speech and environmental audio simultaneously.
+            </p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>Dual Processing</h3>
+                <p>Parallel processing of speech semantics and acoustic features for 30% faster inference.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-earth-americas"></i>
+                <h3>Context Aware</h3>
+                <p>Identifying location, emotion, and environmental context (traffic, nature, indoor).</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Privacy First</h3>
+                <p>On-edge processing. We do not store voice data longer than the session requires.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Powered By</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Python / TensorFlow</h4>
+                    <span>Core ML Models</span>
+                </div>
+                <div class="tech-item">
+                    <h4>WebAudio API</h4>
+                    <span>Signal Processing</span>
+                </div>
+                <div class="tech-item">
+                    <h4>Node.js</h4>
+                    <span>Backend Orchestration</span>
+                </div>
+                <div class="tech-item">
+                    <h4>React / Vanilla JS</h4>
+                    <span>Frontend Interface</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid #222;">
+            <h2 style="margin-bottom: 20px;">Future Roadmap</h2>
+            <div class="roadmap-item">
+                <i class="fa-solid fa-check-circle check-icon"></i>
+                <div>
+                    <h4 style="color:white;">Phase 1: Environment Detection</h4>
+                    <small style="color:#666;">Released Q1 2024</small>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <i class="fa-solid fa-clock wait-icon"></i>
+                <div>
+                    <h4 style="color:white;">Phase 2: Real-time Streaming Analysis</h4>
+                    <small style="color:#666;">Coming Q3 2024 - Live microphone support</small>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <i class="fa-solid fa-clock wait-icon"></i>
+                <div>
+                    <h4 style="color:white;">Phase 3: Multi-Speaker Separation</h4>
+                    <small style="color:#666;">In Development - Isolate voices in crowds</small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auralis | Secure Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+  <header class="navbar">
+    <div class="logo"><i class="fa-solid fa-wave-square"></i> Auralis</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="login-container">
+    
+    <div class="visual-side">
+        <div class="cube-wrapper">
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+        <h2>Access Neural Core</h2>
+        <p>Authenticate to access your audio models.</p>
+    </div>
+
+    <div class="form-side">
+        <form class="glass-form" id="loginForm">
+            <h3>Welcome Back</h3>
+            
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div style="text-align: right; margin-bottom: 20px;">
+                <a href="#" style="color:#aaa; font-size:12px; text-decoration:none;">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn outline-glow btn-hover" id="signInBtn">
+                Sign In
+            </button>
+            
+            <p id="loginMsg" style="text-align:center; color: #ff4757; margin-top:10px; font-size:12px;"></p>
+
+            <p class="form-footer">
+                Don't have an account? <a href="#" style="color:#7f3cff; font-weight:600;">Sign Up</a>
+            </p>
+        </form>
+    </div>
+
+  </div>
+
+  <script>
+    // --- FEATURE 5: LOGIN LOGIC ---
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const msg = document.getElementById("loginMsg");
+        const btn = document.getElementById("signInBtn");
+
+        btn.textContent = "Authenticating...";
+        
+        try {
+            const res = await fetch("http://127.0.0.1:8000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password })
+            });
+            
+            const data = await res.json();
+            
+            if (data.token) {
+                // Save token for Cloud Sync
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("userEmail", data.email);
+                window.location.href = "dashboard.html";
+            } else {
+                msg.textContent = data.error || "Login failed";
+                btn.textContent = "Sign In";
+            }
+        } catch (err) {
+            msg.textContent = "Server connection failed";
+            btn.textContent = "Sign In";
+        }
+    });
+  </script>
+
+</body>
+</html>

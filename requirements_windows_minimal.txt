@@ -1,0 +1,43 @@
+# ==============================
+# requirements_windows_minimal.txt
+# ==============================
+# Auralis v5.0 — Windows / No C++ compiler needed
+# Install: pip install -r requirements_windows_minimal.txt
+# ==============================
+
+# Core ML Frameworks
+tensorflow>=2.13.0
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# Transformers (Whisper via HuggingFace pipeline)
+transformers>=4.30.0
+sentencepiece>=0.1.99
+
+# Audio Processing (Pure Python — no compilation)
+librosa>=0.10.0
+soundfile>=0.12.0
+pydub>=0.25.1
+
+# Scientific Computing
+numpy>=1.24.0
+scipy>=1.10.0
+
+# API Framework
+fastapi>=0.100.0
+uvicorn>=0.22.0
+python-multipart>=0.0.6
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# HTTP & Networking
+requests>=2.31.0
+httpx>=0.24.0
+
+# Translation (Pure Python — no C++ needed)
+deep-translator>=1.11.4
+
+# Utilities
+tqdm>=4.65.0
+python-dotenv>=1.0.0
+pyyaml>=6.0
